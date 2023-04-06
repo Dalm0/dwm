@@ -14,7 +14,6 @@
 
 /* Other patches */
 #include "attachx.h"
-#include "dwmc.h"
 #include "fullscreen.h"
 #include "ipc.h"
 #include "ipc/ipc.h"

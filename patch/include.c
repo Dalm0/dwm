@@ -14,7 +14,6 @@
 
 /* Other patches */
 #include "attachx.c"
-#include "dwmc.c"
 #include "fullscreen.c"
 #include "ipc.c"
 #ifdef VERSION

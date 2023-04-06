@@ -38,6 +38,7 @@
 *.hex
 
 dwm
+dwm-msg
 
 # Debug files
 *.dSYM/

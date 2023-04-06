@@ -16,6 +16,13 @@
 #include "attachx.c"
 #include "dwmc.c"
 #include "fullscreen.c"
+#include "ipc.c"
+#ifdef VERSION
+#include "ipc/IPCClient.c"
+#include "ipc/yajl_dumps.c"
+#include "ipc/ipc.c"
+#include "ipc/util.c"
+#endif
 #include "movestack.c"
 #include "pertag.c"
 #include "placemouse.c"

@@ -665,6 +665,8 @@ cleanup(void)
 	Layout foo = { "", NULL };
 	size_t i;
 
+	alttabend();
+
 	for (m = mons; m; m = m->next)
 		persistmonitorstate(m);
 

@@ -23,6 +23,14 @@ static const int statusmon               = 'A';
 static const unsigned int systrayspacing = 2;   /* systray spacing */
 static const int showsystray             = 1;   /* 0 means no systray */
 
+/* alt-tab configuration */
+static const unsigned int tabmodkey        = 0x40; /* (Alt) when this key is held down the alt-tab functionality stays active. Must be the same modifier as used to run alttabstart */
+static const unsigned int tabcyclekey      = 0x17; /* (Tab) when this key is hit the menu moves one position forward in client stack. Must be the same key as used to run alttabstart */
+static const unsigned int tabposy          = 1;    /* tab position on Y axis, 0 = top, 1 = center, 2 = bottom */
+static const unsigned int tabposx          = 1;    /* tab position on X axis, 0 = left, 1 = center, 2 = right */
+static const unsigned int maxwtab          = 600;  /* tab menu width */
+static const unsigned int maxhtab          = 200;  /* tab menu height */
+
 /* Indicators: see patch/bar_indicators.h for options */
 static int tagindicatortype              = INDICATOR_TOP_LEFT_SQUARE;
 static int tiledindicatortype            = INDICATOR_NONE;
@@ -268,7 +276,8 @@ static Key keys[] = {
 	{ MODKEY|Mod1Mask|ShiftMask,    XK_9,          incrovgaps,             {.i = -1 } },
 	{ MODKEY|Mod1Mask,              XK_0,          togglegaps,             {0} },
 	{ MODKEY|Mod1Mask|ShiftMask,    XK_0,          defaultgaps,            {0} },
-	{ Mod1Mask,                     XK_Tab,        view,                   {0} },
+	{ Mod1Mask,                     XK_Tab,        alttabstart,            {0} },
+	{ MODKEY,                       XK_Tab,        view,                   {0} },
 	{ Mod1Mask|ControlMask,         XK_Left,       shiftviewclients,       {.i = -1} },
 	{ Mod1Mask|ControlMask,         XK_Right,      shiftviewclients,       {.i = +1} },
 	{ MODKEY|ShiftMask,             XK_c,          killclient,             {0} },

@@ -13,6 +13,7 @@
 #include "bar_systray.h"
 
 /* Other patches */
+#include "alttab/alttab.h"
 #include "attachx.h"
 #include "fullscreen.h"
 #include "ipc.h"

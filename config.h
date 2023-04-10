@@ -312,6 +312,7 @@ static Key keys[] = {
 	{ MODKEY,           XK_w,                     spawn,   SHCMD("dmenu_switch") },
 	{ MODKEY,           XK_p,                     spawn,   SHCMD("dmenu_power") },
 	{ MODKEY,           XK_v,                     spawn,   SHCMD("dmenu_clipboard") },
+	{ MODKEY|ShiftMask, XK_w,                     spawn,   SHCMD("dmenu_brotab") },
 
 	{ MODKEY,           XK_e,                     spawn,   SHCMD("emacsclient -c -a 'emacs'") },
 

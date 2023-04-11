@@ -9,9 +9,9 @@ OBJ = ${SRC:.c=.o}
 # FreeBSD users, prefix all ifdef, else and endif statements with a . for this to work (e.g. .ifdef)
 
 ifdef YAJLLIBS
-all: options dwm dwm-msg
+all: options dwm dwm-msg get-xkey
 else
-all: options dwm
+all: options dwm get-xkey
 endif
 
 options:
@@ -36,9 +36,13 @@ dwm-msg:
 	${CC} -o $@ patch/ipc/dwm-msg.c ${LDFLAGS}
 endif
 
+get-xkey:
+	${CC} -o $@ patch/alttab/get-xkey.c ${LDFLAGS}
+
 clean:
 	rm -f dwm ${OBJ} dwm-${VERSION}.tar.gz
 	rm -f dwm-msg
+	rm -f get-xkey
 
 dist: clean
 	mkdir -p dwm-${VERSION}
@@ -51,15 +55,15 @@ dist: clean
 install: all
 	mkdir -p ${DESTDIR}${PREFIX}/bin
 	cp -f dwm ${DESTDIR}${PREFIX}/bin
+	chmod 755 ${DESTDIR}${PREFIX}/bin/dwm
 	cp -f patch/ipc/get_monitor_number ${DESTDIR}${PREFIX}/bin
 	chmod 755 ${DESTDIR}${PREFIX}/bin/get_monitor_number
 ifdef YAJLLIBS
 	cp -f dwm-msg ${DESTDIR}${PREFIX}/bin
-endif
-	chmod 755 ${DESTDIR}${PREFIX}/bin/dwm
-ifdef YAJLLIBS
 	chmod 755 ${DESTDIR}${PREFIX}/bin/dwm-msg
 endif
+	cp -f get-xkey ${DESTDIR}${PREFIX}/bin
+	chmod 755 ${DESTDIR}${PREFIX}/bin/get-xkey
 	mkdir -p ${DESTDIR}${MANPREFIX}/man1
 	sed "s/VERSION/${VERSION}/g" < dwm.1 > ${DESTDIR}${MANPREFIX}/man1/dwm.1
 	chmod 644 ${DESTDIR}${MANPREFIX}/man1/dwm.1

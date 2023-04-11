@@ -39,6 +39,7 @@
 
 dwm
 dwm-msg
+get-xkey
 
 # Debug files
 *.dSYM/
